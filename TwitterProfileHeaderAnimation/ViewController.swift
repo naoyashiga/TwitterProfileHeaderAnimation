@@ -12,9 +12,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var headerImageView: UIImageView!
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var tableViewHeightConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
+        
+        let nibName = UINib(nibName: "TableViewCell", bundle:nil)
+        tableView.registerNib(nibName, forCellReuseIdentifier: "TableViewCell")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +37,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             headerImageView.frame.origin.y = scrollY / 2
             
         } else if scrollY > 0 {
-            headerImageView.frame.origin.y = max(-headerImageView.frame.height / 5, -scrollY / 5)
+            let headerHeightMovingSpeed = 135 - scrollY / 1
+            let minHeight: CGFloat = 50
+            
+            tableViewHeightConstraint.constant = max(minHeight, headerHeightMovingSpeed)
+            view.layoutIfNeeded()
             
         } else if scrollY == 0{
             
@@ -42,11 +51,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //MARK: UITableViewDelegate
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int  {
-        return 10
+        return 50
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath:NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+        let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as! TableViewCell
+        cell.titleLabel.text = "\(indexPath.row)"
+        
         return cell
     }
     
