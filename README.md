@@ -41,7 +41,7 @@ How to create an interactive blur effect in iOS8 • Five
 http://five.agency/how-to-create-an-interactive-blur-effect-in-ios8/  
 
 # Library  
-## Why you change UIVisualEffectView alpha?  
+## Why don't you change UIVisualEffectView alpha?  
 
 First, I changed UIVisualEffectView alpha. I got this error message and blurred image got glitch when scrolling.  
 ```
