@@ -1,4 +1,5 @@
 # Twitter Profile Header Animation  
+![](https://raw.githubusercontent.com/naoyashiga/TwitterProfileHeaderAnimation/master/demo.gif)  
 This is a very simple scroll animation like Twitter profile page animation.
 
 
