@@ -12,7 +12,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var headerImageView: UIImageView!
     @IBOutlet var tableView: UITableView!
     
-    @IBOutlet var tableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var headerImageViewHeightConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -29,24 +30,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //MARK: UIScrollViewDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let scrollY = scrollView.contentOffset.y
-        println(scrollY)
         
+        println(scrollY)
         if scrollY < 0 {
             let scaleRatio = 1 - scrollY / 150
             headerImageView.transform = CGAffineTransformMakeScale(scaleRatio, scaleRatio)
-            headerImageView.frame.origin.y = scrollY / 2
             
         } else if scrollY > 0 {
-            let headerHeightMovingSpeed = 135 - scrollY / 1
-            let minHeight: CGFloat = 50
+            let headerHeightMovingSpeed = -scrollY / 2
+            let minHeight: CGFloat = view.frame.height * headerImageViewHeightConstraint.multiplier / 2
+            let constant: CGFloat = view.frame.height * headerImageViewHeightConstraint.multiplier - minHeight
             
-            tableViewHeightConstraint.constant = max(minHeight, headerHeightMovingSpeed)
+            headerImageViewHeightConstraint.constant = max(-constant, headerHeightMovingSpeed)
             view.layoutIfNeeded()
-            
-        } else if scrollY == 0{
-            
         }
-        
     }
     
     //MARK: UITableViewDelegate
