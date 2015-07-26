@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="TwitterProfileHeaderAnimation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +15,42 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="619-Nt-noA">
+                                <rect key="frame" x="0.0" y="135" width="600" height="465"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="2eA-4L-BXc"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="IsN-cp-fGP"/>
+                                </connections>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sea-sky-beach-holiday" translatesAutoresizingMaskIntoConstraints="NO" id="f0d-Pc-iYR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="135"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" secondItem="619-Nt-noA" secondAttribute="height" constant="135" id="5pm-Rx-3Nf"/>
+                            <constraint firstAttribute="trailing" secondItem="619-Nt-noA" secondAttribute="trailing" id="Gre-xE-14i"/>
+                            <constraint firstAttribute="trailing" secondItem="f0d-Pc-iYR" secondAttribute="trailing" id="KPv-gn-2x2"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="619-Nt-noA" secondAttribute="bottom" id="ThG-97-REH"/>
+                            <constraint firstItem="f0d-Pc-iYR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="h6l-Hh-jNk"/>
+                            <constraint firstItem="619-Nt-noA" firstAttribute="top" secondItem="f0d-Pc-iYR" secondAttribute="bottom" id="i1U-Gn-Ojz"/>
+                            <constraint firstItem="f0d-Pc-iYR" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="ogp-44-2i7"/>
+                            <constraint firstItem="619-Nt-noA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="qMb-mU-F0R"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="headerImageView" destination="f0d-Pc-iYR" id="ADf-fK-2fG"/>
+                        <outlet property="tableView" destination="619-Nt-noA" id="LqA-bz-fNd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="306" y="437"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="sea-sky-beach-holiday" width="2552" height="1690"/>
+    </resources>
 </document>
