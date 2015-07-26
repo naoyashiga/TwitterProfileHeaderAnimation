@@ -2,7 +2,37 @@
 ![](https://raw.githubusercontent.com/naoyashiga/TwitterProfileHeaderAnimation/master/demo.gif)  
 This is a very simple scroll animation like Twitter profile page animation.
 
+# Code  
+## Get Blurred Image  
+```swift
+let blurRadius: CGFloat = 20.0
+blurredImageView.image = headerImageView.image?.applyBlurWithRadius(blurRadius, tintColor: nil, saturationDeltaFactor: 1.0, maskImage: nil)
+```
 
+## Animation  
+```swift
+func scrollViewDidScroll(scrollView: UIScrollView) {
+    let scrollY = scrollView.contentOffset.y
+    
+    if scrollY < 0 {
+        let scaleRatio = 1 - scrollY / 150
+        let blurRatio = -scrollY / 150
+        
+        headerImageView.transform = CGAffineTransformMakeScale(scaleRatio, scaleRatio)
+        blurredImageView.transform = CGAffineTransformMakeScale(scaleRatio, scaleRatio)
+        
+        blurredImageView.alpha = min(1.0, blurRatio)
+        
+    } else if scrollY > 0 {
+        let headerHeightMovingSpeed = -scrollY / 2
+        let minHeight: CGFloat = view.frame.height * headerImageViewHeightConstraint.multiplier / 2
+        let constant: CGFloat = view.frame.height * headerImageViewHeightConstraint.multiplier - minHeight
+        
+        headerImageViewHeightConstraint.constant = max(-constant, headerHeightMovingSpeed)
+        view.layoutIfNeeded()
+    }
+}
+```
 # Reference
 Implementing the Twitter iOS App UI - Think & Build  
 http://www.thinkandbuild.it/implementing-the-twitter-ios-app-ui/  
