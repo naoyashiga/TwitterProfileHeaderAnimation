@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var headerImageView: UIImageView!
-
     @IBOutlet var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -19,10 +19,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    //MARK: UIScrollViewDelegate
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let scrollY = scrollView.contentOffset.y
+        println(scrollY)
+        
+        if scrollY < 0 {
+            let scaleRatio = 1 - scrollY / 150
+            headerImageView.transform = CGAffineTransformMakeScale(scaleRatio, scaleRatio)
+            headerImageView.frame.origin.y = scrollY / 2
+            
+        } else if scrollY > 0 {
+            headerImageView.frame.origin.y = max(-headerImageView.frame.height / 5, -scrollY / 5)
+            
+        } else if scrollY == 0{
+            
+        }
+        
+    }
     
+    //MARK: UITableViewDelegate
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int  {
         return 10
     }
@@ -34,7 +52,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
     }
-
 
 }
 
