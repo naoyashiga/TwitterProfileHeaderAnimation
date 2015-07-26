@@ -37,22 +37,30 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sea-sky-beach-holiday" translatesAutoresizingMaskIntoConstraints="NO" id="f0d-Pc-iYR">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sea-sky-beach-holiday" translatesAutoresizingMaskIntoConstraints="NO" id="R6D-mf-z44" userLabel="blurredImage">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="R6D-mf-z44" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="39H-HF-5xB"/>
                             <constraint firstItem="619-Nt-noA" firstAttribute="top" secondItem="f0d-Pc-iYR" secondAttribute="bottom" id="95q-OO-Jjk"/>
+                            <constraint firstAttribute="trailing" secondItem="R6D-mf-z44" secondAttribute="trailing" id="9GI-TZ-rAP"/>
                             <constraint firstAttribute="trailing" secondItem="619-Nt-noA" secondAttribute="trailing" id="Gre-xE-14i"/>
+                            <constraint firstItem="R6D-mf-z44" firstAttribute="height" secondItem="f0d-Pc-iYR" secondAttribute="height" id="H22-Z6-Q6m"/>
                             <constraint firstAttribute="trailing" secondItem="f0d-Pc-iYR" secondAttribute="trailing" id="KPv-gn-2x2"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="619-Nt-noA" secondAttribute="bottom" id="ThG-97-REH"/>
                             <constraint firstItem="f0d-Pc-iYR" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.2" id="Tmk-gF-ub5"/>
                             <constraint firstItem="f0d-Pc-iYR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="h6l-Hh-jNk"/>
                             <constraint firstItem="619-Nt-noA" firstAttribute="top" secondItem="f0d-Pc-iYR" secondAttribute="bottom" id="i1U-Gn-Ojz"/>
+                            <constraint firstItem="R6D-mf-z44" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="l4E-e1-yRX"/>
                             <constraint firstItem="f0d-Pc-iYR" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="ogp-44-2i7"/>
                             <constraint firstItem="619-Nt-noA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="qMb-mU-F0R"/>
                             <constraint firstItem="619-Nt-noA" firstAttribute="top" secondItem="f0d-Pc-iYR" secondAttribute="bottom" id="wUz-Ym-N7i"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blurredImageView" destination="R6D-mf-z44" id="dxe-Ta-d0g"/>
                         <outlet property="headerImageView" destination="f0d-Pc-iYR" id="ADf-fK-2fG"/>
                         <outlet property="headerImageViewHeightConstraint" destination="Tmk-gF-ub5" id="QX1-r7-Pqa"/>
                         <outlet property="tableView" destination="619-Nt-noA" id="LqA-bz-fNd"/>

@@ -15,6 +15,7 @@
 		9A533A791B645FA700A28B8C /* TwitterProfileHeaderAnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A533A781B645FA700A28B8C /* TwitterProfileHeaderAnimationTests.swift */; };
 		9A533A841B6470D000A28B8C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A533A821B6470D000A28B8C /* TableViewCell.swift */; };
 		9A533A851B6470D000A28B8C /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A533A831B6470D000A28B8C /* TableViewCell.xib */; };
+		9A533A8C1B64A07300A28B8C /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A533A8B1B64A07300A28B8C /* UIImageEffects.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		9A533A781B645FA700A28B8C /* TwitterProfileHeaderAnimationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterProfileHeaderAnimationTests.swift; sourceTree = "<group>"; };
 		9A533A821B6470D000A28B8C /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		9A533A831B6470D000A28B8C /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		9A533A8B1B64A07300A28B8C /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				9A533A661B645FA700A28B8C /* Main.storyboard */,
 				9A533A691B645FA700A28B8C /* Images.xcassets */,
 				9A533A6B1B645FA700A28B8C /* LaunchScreen.xib */,
+				9A533A8B1B64A07300A28B8C /* UIImageEffects.swift */,
 				9A533A601B645FA700A28B8C /* Supporting Files */,
 			);
 			path = TwitterProfileHeaderAnimation;
@@ -227,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A533A8C1B64A07300A28B8C /* UIImageEffects.swift in Sources */,
 				9A533A841B6470D000A28B8C /* TableViewCell.swift in Sources */,
 				9A533A651B645FA700A28B8C /* ViewController.swift in Sources */,
 				9A533A631B645FA700A28B8C /* AppDelegate.swift in Sources */,
@@ -356,9 +360,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TwitterProfileHeaderAnimation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -366,9 +373,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TwitterProfileHeaderAnimation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var headerImageView: UIImageView!
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var blurredImageView: UIImageView!
     @IBOutlet var headerImageViewHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -20,6 +21,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let nibName = UINib(nibName: "TableViewCell", bundle:nil)
         tableView.registerNib(nibName, forCellReuseIdentifier: "TableViewCell")
+        
+        let blurRadius: CGFloat = 20.0
+        blurredImageView.image = headerImageView.image?.applyBlurWithRadius(blurRadius, tintColor: nil, saturationDeltaFactor: 1.0, maskImage: nil)
         
     }
 
@@ -31,10 +35,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let scrollY = scrollView.contentOffset.y
         
-        println(scrollY)
+//        println(scrollY)
         if scrollY < 0 {
             let scaleRatio = 1 - scrollY / 150
             headerImageView.transform = CGAffineTransformMakeScale(scaleRatio, scaleRatio)
+            blurredImageView.transform = CGAffineTransformMakeScale(scaleRatio, scaleRatio)
+            
+            let blurRatio = -scrollY / 150
+            
+            blurredImageView.alpha = min(1.0, blurRatio)
             
         } else if scrollY > 0 {
             let headerHeightMovingSpeed = -scrollY / 2
