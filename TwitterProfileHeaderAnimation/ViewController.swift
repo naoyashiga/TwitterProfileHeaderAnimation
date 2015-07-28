@@ -15,6 +15,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var blurredImageView: UIImageView!
     @IBOutlet var headerImageViewHeightConstraint: NSLayoutConstraint!
     
+    var headerBackgroundImage: UIImage? {
+        didSet {
+            let blurRadius: CGFloat = 20.0
+            headerImageView.image = headerBackgroundImage
+            blurredImageView.image = headerImageView.image?.applyBlurWithRadius(blurRadius, tintColor: nil, saturationDeltaFactor: 1.0, maskImage: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -22,9 +30,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let nibName = UINib(nibName: "TableViewCell", bundle:nil)
         tableView.registerNib(nibName, forCellReuseIdentifier: "TableViewCell")
         
-        let blurRadius: CGFloat = 20.0
-        blurredImageView.image = headerImageView.image?.applyBlurWithRadius(blurRadius, tintColor: nil, saturationDeltaFactor: 1.0, maskImage: nil)
-        
+        headerBackgroundImage = UIImage(named: "sea-sky-beach-holiday.png")
     }
 
     override func didReceiveMemoryWarning() {

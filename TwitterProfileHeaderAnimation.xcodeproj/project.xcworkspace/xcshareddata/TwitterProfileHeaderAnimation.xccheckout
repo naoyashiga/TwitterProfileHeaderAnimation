@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>24D5E0C7-1F42-404D-A972-EF5D9BC547EB</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>TwitterProfileHeaderAnimation</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>6DC22D718069EE97F3F49D811D4AA78E784E077B</key>
 		<string>https://github.com/naoyashiga/TwitterProfileHeaderAnimation.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TwitterProfileHeaderAnimation.xcodeproj/project.xcworkspace</string>
+	<string>TwitterProfileHeaderAnimation.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>6DC22D718069EE97F3F49D811D4AA78E784E077B</key>
